@@ -41,7 +41,7 @@ This pipeline sets up the Kubernetes infrastructure using Terraform:
 5. Terraform Plan
 6. Terraform Apply
 
-
+![](https://github.com/Sunil-3012/Netflix-Clone-Project/blob/main/images/eksjob.png)
 
 ---
 
@@ -62,7 +62,7 @@ This pipeline builds, analyzes, secures, and deploys the Netflix Clone to EKS:
 10. Deploy to Container
 11. Deploy to Kubernetes
 
-![CI/CD Pipeline](./assets/Screenshot-CICD-Pipeline.png)
+
 
 ---
 
@@ -71,6 +71,7 @@ This pipeline builds, analyzes, secures, and deploys the Netflix Clone to EKS:
 - ✅ **Static Code Analysis**: Performed via SonarQube in the Jenkins pipeline.
 - ✅ **File System & Container Scanning**: Using **Trivy** for vulnerabilities.
 - ✅ **Infrastructure as Code Security**: Terraform plans reviewed before apply.
+![](https://github.com/Sunil-3012/Netflix-Clone-Project/blob/main/images/sonarqube.png)
 
 ---
 
@@ -88,7 +89,7 @@ This pipeline builds, analyzes, secures, and deploys the Netflix Clone to EKS:
 - **Prometheus** collects metrics from Kubernetes nodes and the application.
 - **Node Exporter** installed on EC2 instances to export system-level metrics.
 - **Grafana** visualizes application health, container metrics, and node stats.
-
+![](https://github.com/Sunil-3012/Netflix-Clone-Project/blob/main/images/grafana.png)
 ---
 
 ## 🌐 Deployment Architecture
@@ -127,7 +128,8 @@ Load Balancer (NLB/ALB)
 Netflix Clone Website
 ```
 ## Final Product
-
+![](https://github.com/Sunil-3012/Netflix-Clone-Project/blob/main/images/website-1.png)
+![](https://github.com/Sunil-3012/Netflix-Clone-Project/blob/main/images/website-2.png)
 ## 🚧 Future Improvements
 
 - Integrate **ArgoCD** for GitOps-style CD.
