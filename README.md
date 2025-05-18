@@ -1,95 +1,156 @@
-<div align="center">
-  <a href="http://netflix-clone-with-tmdb-using-react-mui.vercel.app/">
-    <img src="./public/assets/netflix-logo.png" alt="Logo" width="100" height="32">
-  </a>
+# 🎬 Netflix Clone CI/CD DevSecOps Project
 
-  <h3 align="center">Netflix Clone</h3>
+This project is a full DevSecOps implementation of a **Netflix Clone** using modern CI/CD practices, infrastructure as code, container orchestration, and robust monitoring and security tools.
 
-  <p align="center">
-    <a href="https://netflix-clone-react-typescript.vercel.app/">View Demo</a>
-    ·
-    <a href="https://github.com/crazy-man22/netflix-clone-react-typescript/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/crazy-man22/netflix-clone-react-typescript/issues">Request Feature</a>
-  </p>
-</div>
+## 🚀 Project Overview
 
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#prerequests">Prerequests</a>
-    </li>
-    <li>
-      <a href="#which-features-this-project-deals-with">Which features this project deals with</a>
-    </li>
-    <li><a href="#third-party-libraries-used-except-for-react-and-rtk">Third Party libraries used except for React and RTK</a></li>
-    <li>
-      <a href="#contact">Contact</a>
-    </li>
-  </ol>
-</details>
+This Netflix Clone application is automatically built, tested, containerized, scanned for vulnerabilities, and deployed on an AWS Elastic Kubernetes Service (EKS) cluster using a Jenkins-based CI/CD pipeline. Security and monitoring tools like SonarQube, Trivy, Prometheus, and Grafana are integrated for end-to-end observability and security compliance.
 
-<br />
+---
 
-<div align="center">
-  <img src="./public/assets/home-page.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Home Page</p>
-  <img src="./public/assets/mini-portal.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Mini Portal</p>
-  <img src="./public/assets/detail-modal.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Detail Modal</p>
-  <img src="./public/assets/grid-genre.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Grid Genre Page</p>
-  <img src="./public/assets/watch.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Watch Page with customer contol bar</p>
-</div>
+## 🧰 Tech Stack
 
-## Prerequests
+### Infrastructure & DevOps
+- **AWS EC2** – Base infrastructure
+- **Terraform** – Infrastructure provisioning (EKS)
+- **Jenkins** – CI/CD pipeline orchestration
+- **Docker** – Containerization
+- **Kubernetes (EKS)** – Container orchestration
 
-- Create an account if you don't have on [TMDB](https://www.themoviedb.org/).
-  Because I use its free API to consume movie/tv data.
-- And then follow the [documentation](https://developers.themoviedb.org/3/getting-started/introduction) to create API Key
-- Finally, if you use v3 of TMDB API, create a file named `.env`, and copy and paste the content of `.env.example`.
-  And then paste the API Key you just created.
+### Security & Quality
+- **SonarQube** – Static Code Analysis
+- **Trivy** – Vulnerability scanning for containers and file systems
 
-## Which features this project deal with
+### Monitoring & Logging
+- **Prometheus + Node Exporter** – Metrics collection and scraping
+- **Grafana** – Visualization dashboard for metrics
 
-- How to create and use [Custom Hooks](https://reactjs.org/docs/hooks-custom.html)
-- How to use [Context](https://reactjs.org/docs/context.html) and its provider
-- How to use lazy and Suspense for [Code-Splitting](https://reactjs.org/docs/code-splitting.html)
-- How to use a new [lazy](https://reactrouter.com/en/main/route/lazy) feature of react-router to reduce bundle size.
-- How to use data [loader](https://reactrouter.com/en/main/route/loader) of react-router, and how to use redux dispatch in the loader to fetch data before rendering component.
-- How to use [Portal](https://reactjs.org/docs/portals.html)
-- How to use [Fowarding Refs](https://reactjs.org/docs/forwarding-refs.html) to make components reusuable
-- How to create and use [HOC](https://reactjs.org/docs/higher-order-components.html)
-- How to customize default theme of [MUI](https://mui.com/)
-- How to use [RTK](https://redux-toolkit.js.org/introduction/getting-started)
-- How to use [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
-- How to customize default classname of [MUI](https://mui.com/material-ui/experimental-api/classname-generator)
-- Infinite Scrolling(using [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API))
-- How to make awesome carousel using [slick-carousel](https://react-slick.neostack.com)
+---
 
-## Third Party libraries used except for React and RTK
+## 🧪 Jenkins Pipelines
 
-- [react-router-dom@v6.9](https://reactrouter.com/en/main)
-- [MUI(Material UI)](https://mui.com/)
-- [framer-motion](https://www.framer.com/docs/)
-- [video.js](https://videojs.com)
-- [react-slick](https://react-slick.neostack.com/)
+### 🔧 Pipeline 1 – EKS Cluster Provisioning
 
-## Install with Docker
+This pipeline sets up the Kubernetes infrastructure using Terraform:
 
-```sh
-docker build --build-arg TMDB_V3_API_KEY=your_api_key_here -t netflix-clone .
+**Stages**:
+1. Checkout from Git
+2. Terraform Version Check
+3. Terraform Init
+4. Terraform Validate
+5. Terraform Plan
+6. Terraform Apply
 
-docker run --name netflix-clone-website --rm -d -p 80:80 netflix-clone
+
+
+---
+
+### 📦 Pipeline 2 – CI/CD + DevSecOps
+
+This pipeline builds, analyzes, secures, and deploys the Netflix Clone to EKS:
+
+**Stages**:
+1. Tool Install (JDK, etc.)
+2. Clean Workspace
+3. Checkout Code from Git
+4. SonarQube Analysis
+5. SonarQube Quality Gate Check
+6. Install Dependencies
+7. Trivy File System Scan
+8. Docker Build and Push
+9. Trivy Docker Image Scan
+10. Deploy to Container
+11. Deploy to Kubernetes
+
+![CI/CD Pipeline](./assets/Screenshot-CICD-Pipeline.png)
+
+---
+
+## 🛡️ Security Measures
+
+- ✅ **Static Code Analysis**: Performed via SonarQube in the Jenkins pipeline.
+- ✅ **File System & Container Scanning**: Using **Trivy** for vulnerabilities.
+- ✅ **Infrastructure as Code Security**: Terraform plans reviewed before apply.
+
+---
+
+## 🖥️ Infrastructure Details
+
+| Component | EC2 Instance | 
+|----------|---------------|
+| **t2.large** | Jenkins, Docker, Trivy, SonarQube (in Docker), Terraform |
+| **t2.medium** | Prometheus, Grafana, Node Exporter |
+
+---
+
+## 📊 Monitoring Stack
+
+- **Prometheus** collects metrics from Kubernetes nodes and the application.
+- **Node Exporter** installed on EC2 instances to export system-level metrics.
+- **Grafana** visualizes application health, container metrics, and node stats.
+
+---
+
+## 🌐 Deployment Architecture
+
+```plaintext
+                +---------------------+
+                |   Developer Push    |
+                +---------+-----------+
+                          |
+                          v
+                +---------------------+
+                |       Jenkins       |
+                +---------+-----------+
+                          |
+        +-----------------+------------------+
+        |                                    |
+        v                                    v
++---------------+                 +------------------+
+|  Terraform    |                 |  CI/CD Pipeline  |
+|  (EKS Setup)  |                 |  App Build/Test  |
++------+--------+                 +--------+---------+
+       |                                 |
+       v                                 v
++--------------+               +----------------------+
+|    EKS       | <-------------|  Dockerized App Pods |
+|  Cluster     |               +----------+-----------+
++------+-------+                          |
+       |                                  v
+       |                      +------------------------+
+       |                      |   Prometheus + Grafana |
+       |                      +------------------------+
+       v
+Load Balancer (NLB/ALB)
+       |
+       v
+Netflix Clone Website
 ```
+## Final Product
 
-## Todo
+## 🚧 Future Improvements
 
-- Make the animation of video card portal more similar to Netflix.
-- Improve performance. I am using `context` and `provider` but all components subscribed to the context's value are re-rendered. These re-renders happen even if the part of the value is not used in render of the component. there are [several ways](https://blog.axlight.com/posts/4-options-to-prevent-extra-rerenders-with-react-context/) to prevent the re-renders from these behaviours. In addition to them, there may be several performance issues.
-- Replace bundler([Vite](https://vitejs.dev/guide)) with [Turbopack](https://turbo.build/pack/docs/why-turbopack). Turbopack is introduced in Next.js conf recently. It's very fast but it's nor ready to use right now. it just support Next.js, and they plan to support all others as soon as possible. so if it's ready to use, replace [Vite](https://vitejs.dev/guide) with [Turbopack](https://turbo.build/pack/docs/why-turbopack).
-- Add accessibilities for better UX.
-- Add Tests.
+- Integrate **ArgoCD** for GitOps-style CD.
+- Use **Istio** or **Linkerd** for service mesh and traffic management.
+- Add **log aggregation** with **ELK Stack** or **Loki**.
+
+---
+
+## 🤝 Contributions
+
+Feel free to fork the repo and submit pull requests! Contributions are welcome to improve functionality, security, or pipeline performance.
+
+---
+
+
+## 📬 Contact
+
+For questions, suggestions, or collaboration inquiries:
+
+📧 [gangupamu.sunil30@gmail.com]  
+🔗 [[LinkedIn](https://www.linkedin.com/in/sunil-gangupamu-16487b227/)]  
+
+
+
+
+
