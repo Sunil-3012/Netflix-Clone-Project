@@ -42,6 +42,7 @@ This pipeline sets up the Kubernetes infrastructure using Terraform:
 6. Terraform Apply
 
 ![](https://github.com/Sunil-3012/Netflix-Clone-Project/blob/main/images/eksjob.png)
+![](https://github.com/Sunil-3012/Netflix-Clone-Project/blob/main/images/EKS_Cluster.png)
 
 ---
 
@@ -62,6 +63,7 @@ This pipeline builds, analyzes, secures, and deploys the Netflix Clone to EKS:
 10. Deploy to Container
 11. Deploy to Kubernetes
 
+![](https://github.com/Sunil-3012/Netflix-Clone-Project/blob/main/images/pipeline.png)
 
 
 ---
